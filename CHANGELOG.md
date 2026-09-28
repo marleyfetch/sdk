@@ -1,6 +1,12 @@
 # Changelog
 
-## [1.0.0] - unreleased
+## [1.0.1] - 2026-09-28
+
+No code changes. The first release built and published by this repository's GitHub Actions
+workflow through npm trusted publishing, so it carries a provenance attestation linking the
+package to the commit it was built from.
+
+## [1.0.0] - 2026-09-28
 
 Initial release, as `@marleyfetch/sdk`. Nothing was ever published before, so the
 pre-rewrite `MarleyFetchClient` interface is not documented here as a breaking change.

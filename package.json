@@ -1,6 +1,6 @@
 {
   "name": "@marleyfetch/sdk",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Universal SDK for MarleyFetch. Send email through your own SMTP connections with a chainable API. Works in Node.js, Cloudflare Workers, Vercel, Netlify, Deno, and Bun.",
   "type": "module",
   "main": "dist/index.js",
