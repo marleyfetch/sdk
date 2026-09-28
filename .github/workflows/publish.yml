@@ -17,13 +17,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # No registry-url: it writes an _authToken line with a placeholder token, npm then
+      # thinks it is already authenticated, skips the OIDC exchange and the publish 404s.
       - uses: actions/setup-node@v4
         with:
           node-version: 24
-          registry-url: https://registry.npmjs.org
 
       # Trusted publishing needs npm 11.5.1+, newer than some Node 24 images ship.
-      - run: npm install -g npm@latest
+      - run: npm install -g npm@latest && npm --version
 
       - run: npm ci
 
