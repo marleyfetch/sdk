@@ -1,0 +1,73 @@
+{
+  "name": "@marleyfetch/sdk",
+  "version": "1.0.0",
+  "description": "Universal SDK for MarleyFetch. Send email through your own SMTP connections with a chainable API. Works in Node.js, Cloudflare Workers, Vercel, Netlify, Deno, and Bun.",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./core": {
+      "types": "./dist/core.d.ts",
+      "default": "./dist/core.js"
+    },
+    "./email": {
+      "types": "./dist/email.d.ts",
+      "default": "./dist/email.js"
+    },
+    "./batch": {
+      "types": "./dist/batch.d.ts",
+      "default": "./dist/batch.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "npm run build && node test.mjs",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "email",
+    "smtp",
+    "api",
+    "marleyfetch",
+    "sdk",
+    "cloudflare-workers",
+    "vercel",
+    "netlify",
+    "edge-functions",
+    "serverless",
+    "deno",
+    "bun",
+    "transactional-email"
+  ],
+  "author": "MarleyFetch <support@marleyfetch.com>",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marleyfetch/sdk.git"
+  },
+  "homepage": "https://docs.marleyfetch.com/sdk",
+  "bugs": {
+    "url": "https://github.com/marleyfetch/sdk/issues"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

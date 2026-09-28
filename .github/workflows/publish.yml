@@ -1,0 +1,33 @@
+name: Publish
+
+# Manual. Bump "version" in package.json and add a CHANGELOG entry, push, then run this.
+# npm refuses to publish a version that already exists, so a re-run cannot overwrite a release.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  # Trusted publishing: npm verifies this workflow over OIDC, so there is no npm token to store.
+  # npmjs.com → @marleyfetch/sdk → Settings → Trusted Publisher must name marleyfetch/sdk and publish.yml.
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+
+      # Trusted publishing needs npm 11.5.1+, newer than some Node 24 images ship.
+      - run: npm install -g npm@latest
+
+      - run: npm ci
+
+      # Builds, then runs test.mjs against dist.
+      - run: npm test
+
+      - run: npm publish
