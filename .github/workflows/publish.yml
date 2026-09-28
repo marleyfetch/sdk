@@ -31,4 +31,5 @@ jobs:
       # Builds, then runs test.mjs against dist.
       - run: npm test
 
-      - run: npm publish
+      # npm logs why an OIDC exchange failed only at verbose level; look for the "oidc" lines.
+      - run: npm publish --loglevel verbose
